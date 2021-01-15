@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="tabs">
+    <ul>
+        <li class="tab-wrapper">
+            <a href="#current-tasks" class="tab current-tasks default-open">Текущие задачи
+                (<span class="current-tasks-count"></span>)</a>
+        </li>
+        <li class="tab-wrapper">
+            <a href="#completed-tasks" class="tab completed-tasks">Выполненные задачи
+                (<span class="completed-tasks-count"></span>)</a>
+        </li>
+        <li class="tab-wrapper">
+            <a href="#deleted-tasks" class="tab deleted-tasks">Удаленные задачи
+                (<span class="deleted-tasks-count"></span>)</a>
+        </li>
+    </ul>
+</header>
+
+<main class="tabs-content">
+    <div id="current-tasks" class="tab-content">
+        <button class="tasks-create-btn">Добавить задачу</button>
+
+        <dialog class="modal-window">
+            <div class="modal-window__content-wrapper">
+                <form name="form" class="form">
+                    <label for="task">Название задачи</label>
+                    <input type="text" name="task" id="task" class="form__task" required>
+
+                    <label for="description">Описание</label>
+                    <textarea name="description" id="description" class="form__description"></textarea>
+
+                    <fieldset class="form__priority">
+                        <legend>Выберите приоритет</legend>
+
+                        <label for="indefinite">
+                        <input type="radio" name="priority" id="indefinite" class="form__priority-btn" value="Бессрочный">Бессрочный</label>
+
+                        <label for="urgent">
+                        <input type="radio" name="priority" id="urgent" class="form__priority-btn" value="Срочный">Срочный</label>
+
+                        <label for="trial">
+                        <input type="radio" name="priority" id="trial" class="form__priority-btn" value="Триальный">Триальный</label>
+                    </fieldset>
+
+                    <div>
+                        <button type="submit" class="form__btn-send">Создать</button>
+                        <button type="reset" class="form__btn-close">Отменить</button>
+                    </div>
+                </form>
+            </div>
+        </dialog>
+
+        <table class="tab-content__current-tasks table">
+            <thead class="table-head">
+                <tr>
+                    <th>Выполнено</th>
+                    <th>Задача</th>
+                    <th>Приоритет</th>
+                    <th>Управление</th>
+                </tr>
+            </thead>
+
+            <tbody class="table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <template id="template__table-content">
+        <tr class="table-body__task">
+            <td class="table-body__task__done-btn"></td>
+            <td class="table-body__task__info"></td>
+            <td class="table-body__task__priority"></td>
+            <td class="table-body__task__management"></td>
+        </tr>
+    </template>
+
+    <div id="completed-tasks" class="tab-content">
+        <table class="tab-content__completed-tasks table">
+            <thead class="table-head">
+                <tr>
+                    <th>Выполнено</th>
+                    <th>Задача</th>
+                    <th>Приоритет</th>
+                    <th>Управление</th>
+                </tr>
+            </thead>
+
+            <tbody class="table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="deleted-tasks" class="tab-content">
+        <table class="tab-content__deleted-tasks table">
+            <thead class="table-head">
+                <tr>
+                    <th>Выполнено</th>
+                    <th>Задача</th>
+                    <th>Приоритет</th>
+                    <th>Управление</th>
+                </tr>
+            </thead>
+
+            <tbody class="table-body">
+            </tbody>
+        </table>
+    </div>
+</main>
+
+<script src="index.js"></script>
+</body>
+</html>
