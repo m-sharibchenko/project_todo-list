@@ -3,22 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>ToDo List</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<header class="tabs">
-    <ul>
+<header>
+    <ul class="tabs">
         <li class="tab-wrapper">
-            <a href="#current-tasks" class="tab current-tasks default-open">Текущие задачи
-                (<span class="current-tasks-count"></span>)</a>
+            <a href="#current-tasks" class="tab tab-current-tasks">
+                Текущие задачи
+                (<span class="current-tasks-count"></span>)
+            </a>
         </li>
+
         <li class="tab-wrapper">
-            <a href="#completed-tasks" class="tab completed-tasks">Выполненные задачи
-                (<span class="completed-tasks-count"></span>)</a>
+            <a href="#completed-tasks" class="tab tab-completed-tasks">
+                Выполненные задачи
+                (<span class="completed-tasks-count"></span>)
+            </a>
         </li>
+
         <li class="tab-wrapper">
-            <a href="#deleted-tasks" class="tab deleted-tasks">Удаленные задачи
-                (<span class="deleted-tasks-count"></span>)</a>
+            <a href="#deleted-tasks" class="tab tab-deleted-tasks">
+                Удаленные задачи
+                (<span class="deleted-tasks-count"></span>)
+            </a>
         </li>
     </ul>
 </header>
@@ -27,37 +35,7 @@
     <div id="current-tasks" class="tab-content">
         <button class="tasks-create-btn">Добавить задачу</button>
 
-        <dialog class="modal-window">
-            <div class="modal-window__content-wrapper">
-                <form name="form" class="form">
-                    <label for="task">Название задачи</label>
-                    <input type="text" name="task" id="task" class="form__task" required>
-
-                    <label for="description">Описание</label>
-                    <textarea name="description" id="description" class="form__description"></textarea>
-
-                    <fieldset class="form__priority">
-                        <legend>Выберите приоритет</legend>
-
-                        <label for="indefinite">
-                        <input type="radio" name="priority" id="indefinite" class="form__priority-btn" value="Бессрочный">Бессрочный</label>
-
-                        <label for="urgent">
-                        <input type="radio" name="priority" id="urgent" class="form__priority-btn" value="Срочный">Срочный</label>
-
-                        <label for="trial">
-                        <input type="radio" name="priority" id="trial" class="form__priority-btn" value="Триальный">Триальный</label>
-                    </fieldset>
-
-                    <div>
-                        <button type="submit" class="form__btn-send">Создать</button>
-                        <button type="reset" class="form__btn-close">Отменить</button>
-                    </div>
-                </form>
-            </div>
-        </dialog>
-
-        <table class="tab-content__current-tasks table">
+        <table class="table table-current-tasks">
             <thead class="table-head">
                 <tr>
                     <th>Выполнено</th>
@@ -67,22 +45,12 @@
                 </tr>
             </thead>
 
-            <tbody class="table-body">
-            </tbody>
+            <tbody class="table-body"></tbody>
         </table>
     </div>
 
-    <template id="template__table-content">
-        <tr class="table-body__task">
-            <td class="table-body__task__done-btn"></td>
-            <td class="table-body__task__info"></td>
-            <td class="table-body__task__priority"></td>
-            <td class="table-body__task__management"></td>
-        </tr>
-    </template>
-
     <div id="completed-tasks" class="tab-content">
-        <table class="tab-content__completed-tasks table">
+        <table class="table table-completed-tasks">
             <thead class="table-head">
                 <tr>
                     <th>Выполнено</th>
@@ -92,13 +60,12 @@
                 </tr>
             </thead>
 
-            <tbody class="table-body">
-            </tbody>
+            <tbody class="table-body"></tbody>
         </table>
     </div>
 
     <div id="deleted-tasks" class="tab-content">
-        <table class="tab-content__deleted-tasks table">
+        <table class="table table-deleted-tasks">
             <thead class="table-head">
                 <tr>
                     <th>Выполнено</th>
@@ -108,12 +75,82 @@
                 </tr>
             </thead>
 
-            <tbody class="table-body">
-            </tbody>
+            <tbody class="table-body"></tbody>
         </table>
     </div>
 </main>
 
-<script src="index.js"></script>
+<dialog class="modal-window">
+    <div class="modal-window__content-wrapper">
+        <form name="form" class="form">
+            <label for="task">Название задачи</label>
+            <input type="text" name="task" id="task" class="form__task" required>
+
+            <label for="description">Описание</label>
+            <textarea name="description" id="description" class="form__description"></textarea>
+
+            <fieldset class="form__priority">
+                <legend>Выберите приоритет</legend>
+
+                <label for="indefinite">
+                    <input type="radio" name="priority" id="indefinite" class="form__btn-priority"
+                           value="Бессрочный" checked>
+                    Бессрочный
+                </label>
+
+                <label for="urgent">
+                    <input type="radio" name="priority" id="urgent" class="form__btn-priority"
+                           value="Срочный">
+                    Срочный
+                </label>
+
+                <label for="trial">
+                    <input type="radio" name="priority" id="trial" class="form__btn-priority"
+                           value="Триальный">
+                    Триальный
+                </label>
+            </fieldset>
+
+            <div>
+                <button type="submit" class="form__btn-create">Создать</button>
+                <button type="submit" class="form__btn-edit hide">Принять изменения</button>
+                <button type="reset" class="form__btn-close">Отменить</button>
+            </div>
+        </form>
+    </div>
+</dialog>
+
+<template id="template__table-content">
+    <tr class="table-body__task">
+        <td class="task__btn-done">
+            <button class="btn-done"></button>
+        </td>
+
+        <td class="task__info">
+            <p class="title"></p>
+            <button class="btn-description hide"></button>
+            <p class="description hide"></p>
+        </td>
+
+        <td class="task__priority">
+            <p class="priority"></p>
+        </td>
+
+        <td class="task__management">
+            <button class="btn-edit-task">Редактировать</button>
+            <button class="btn-delete-task">Удалить</button>
+            <button class="btn-recover-task hide">Восстановить</button>
+        </td>
+    </tr>
+</template>
+
+<script src="js/show_tab_content.js"></script>
+<script src="js/count_tasks.js"></script>
+<script src="js/show_modal_window.js"></script>
+<script src="js/manage_tasks.js"></script>
+<script src="js/add_task.js"></script>
+
+<!--<script src="js/index.js"></script>-->
+
 </body>
 </html>

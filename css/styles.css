@@ -1,4 +1,4 @@
-ul {
+.tabs {
     list-style-type: none;
     display: flex;
 }
@@ -21,12 +21,14 @@ p {
     height: 100%;
     border: none;
     outline: none;
+    text-decoration: none;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.tab-active {
+.active {
     background-color: bisque;
 }
 
@@ -83,15 +85,35 @@ td, th {
 /* добавить, когда будет готов контент таблицы
     +colspan в заголовке
 */
-/*.table-body__task-done-btn {*/
+/*.task__btn-done {*/
 /*    min-width: 15px;*/
 /*}*/
 
-/*.table-body__task-info {*/
+/*.task__info {*/
 /*    min-width: 300px;*/
 /*}*/
 
-.table__description-btn {
+.btn-done {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1em;
+    height: 1.05em;
+    border: 1px solid gray;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-done:hover {
+    background: transparent;
+}
+
+.hide {
+    display: none;
+}
+
+.btn-description-show {
     border: 0;
     background: inherit;
     margin-bottom: 5px;
@@ -99,18 +121,10 @@ td, th {
     text-decoration: underline;
 }
 
-.table__description-btn:hover {
+.btn-description-show:hover {
     cursor: pointer;
 }
 
-.table__description-btn:focus {
+.btn-description-show:focus {
     outline: none;
-}
-
-.table__description-hide {
-    display: none;
-}
-
-.table__description-show {
-    display: block;
 }
