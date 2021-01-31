@@ -1,130 +1,24 @@
-.tabs {
-    list-style-type: none;
-    display: flex;
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+@import 'tabs.css';
+@import "tabs-content.css";
+@import "table-content.css";
+@import "form.css";
+
+* {
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 p {
-    margin: 0;
-}
-
-.tab-wrapper{
-    margin-right: 30px;
-    border: 1px solid black;
-    border-radius: 10px;
-    min-width: 200px;
-    min-height: 30px;
-    overflow: hidden;
-}
-
-.tab {
-    width: 100%;
-    height: 100%;
-    border: none;
-    outline: none;
-    text-decoration: none;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.active {
-    background-color: bisque;
-}
-
-.tab-content {
-    display: none;
-}
-
-.tab-content:target {
-    display: block;
-}
-
-.tasks-create-btn {
-    margin-bottom: 20px;
-    min-height: 30px;
-    min-width: 120px;
-}
-
-.modal-window__content-wrapper {
-    min-width: 300px;
-    min-height: 300px;
-}
-
-.form {
-    display: flex;
-    flex-direction: column;
-}
-
-.form__task {
-    margin-bottom: 10px;
-}
-
-.form__description {
-    min-height: 150px;
-    margin-bottom: 10px;
-    resize: none;
-}
-
-.form__priority {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-}
-
-.table {
-    table-layout: fixed;
-    border-collapse: collapse;
-}
-
-td, th {
-    word-break: break-word;
-    border: 1px solid black;
-}
-
-/* добавить, когда будет готов контент таблицы
-    +colspan в заголовке
-*/
-/*.task__btn-done {*/
-/*    min-width: 15px;*/
-/*}*/
-
-/*.task__info {*/
-/*    min-width: 300px;*/
-/*}*/
-
-.btn-done {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 1em;
-    height: 1.05em;
-    border: 1px solid gray;
-    border-radius: 50%;
-    outline: none;
-    cursor: pointer;
-}
-
-.btn-done:hover {
-    background: transparent;
+    margin: 0.5rem 0;
 }
 
 .hide {
     display: none;
 }
 
-.btn-description-show {
-    border: 0;
-    background: inherit;
-    margin-bottom: 5px;
-    color: blue;
-    text-decoration: underline;
-}
-
-.btn-description-show:hover {
-    cursor: pointer;
-}
-
-.btn-description-show:focus {
+button, button:active, button:hover, button:focus, input, input:active, input:focus {
     outline: none;
+    cursor: pointer;
+    background-color: inherit;
 }
+

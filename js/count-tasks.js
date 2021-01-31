@@ -10,7 +10,25 @@ const countDelTasks = document.querySelector('.deleted-tasks-count');
 countDelTasks.textContent = '0';
 
 function countTasks() {
-    countCurrentTasks.textContent = `${currentTasksTable.rows.length}`;
-    countCompletedTasks.textContent = `${completedTasksTable.rows.length}`;
-    countDelTasks.textContent = `${deletedTasksTable.rows.length}`;
+    const number = currentTasksArray.reduce((acc, value) => {
+        if (value.status === 'current') {
+            acc[0] += 1;
+        }
+        else {
+            if (value.status === 'complete') {
+                acc[1] += 1;
+            }
+            else {
+                acc[2] += 1;
+            }
+        }
+
+        return acc
+
+    }, [0, 0, 0]);
+
+    countCurrentTasks.textContent = number[0];
+    countCompletedTasks.textContent = number[1];
+    countDelTasks.textContent = number[2];
 }
+

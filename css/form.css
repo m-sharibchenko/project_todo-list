@@ -1,0 +1,109 @@
+.modal-window {
+    border-radius: 10px;
+    border: none;
+    padding: 1.5rem;
+}
+
+.modal-window::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.modal-window__content-wrapper {
+    min-width: 300px;
+    min-height: 300px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__label-title, .form__label-description, .form__legend-priority {
+    color: #858585;
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+}
+
+.form__title, .form__description, .form__priority {
+    border: 1px solid #858585;
+    border-radius: 2px;
+    margin-bottom: 1rem;
+    font-size: 18px;
+    min-height: 2rem;
+}
+
+.form__title:focus, .form__description:focus {
+    border: 1px solid #423FF9;
+    box-shadow: 0 0 2px;
+    background-color: #f5f5ff;
+    outline: none;
+}
+
+.form__description {
+    min-height: 150px;
+    resize: none;
+}
+
+.form__priority {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form__btn-priority {
+    width: 14px;
+    height: 14px;
+}
+
+.form__btn-priority:hover {
+    cursor: pointer;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-clip: content-box;
+    border: 2px solid #bbbbbb;
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked {
+    background-color: #423FF9;
+}
+
+.form__btn-wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.form__btn-create, .form__btn-edit, .form__btn-close {
+    min-height: 2rem;
+    min-width: 9rem;
+    font-size: 16px;
+    border: 1px solid #423FF9;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.form__btn-create, .form__btn-edit, .form__btn-create:hover, .form__btn-edit:hover {
+    background-color: #423FF9;
+}
+
+.form__btn-close {
+    color: #a4a3a3;
+}
+
+.form__btn-close:hover {
+    background-color: #423FF9;
+    color: #ffffff;
+}
+
+.form__btn-close:hover ~ .form__btn-create, .form__btn-close:hover ~ .form__btn-edit {
+    background-color: #ffffff;
+    color: #a4a3a3;
+}

@@ -1,9 +1,6 @@
+export * as showTabContent from './tab-content.js';
+// export * as countTask from './count-tasks.js';
+// export * as addTask from './task.js';
+export * as showModal from './form.js';
+// export * as manageTasks from './manage-tasks.js';
 
-// let dataArray = localStorage.getItem("validData") ?
-//     JSON.parse(localStorage.getItem("validData")) : [];
-// dataArray.forEach(item => addData(item.task, item.description, item.priority));
-//
-// dataArray.push({task: task.value, description: description.value, priority: findRadioValue()});
-// localStorage.setItem("validData", JSON.stringify(dataArray));
-//
-//

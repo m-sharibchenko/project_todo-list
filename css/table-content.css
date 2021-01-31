@@ -1,0 +1,76 @@
+.btn-done {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    background: #ffffff;
+    border: 3px solid #a4a3a3;
+    border-radius: 50%;
+    width: 1.55rem;
+    height: 1.5rem;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.btn-done:hover, .btn-done:active, .btn-done:focus {
+    color: #423FF9;
+    border: 3px solid #423FF9;
+}
+
+.btn-done-checked {
+    color: #423FF9;
+    border: 3px solid #423FF9;
+    /*cursor: auto;*/
+}
+
+.task__btn-edit, .task__btn-delete, .task__btn-recover {
+    position: relative;
+    color: #a4a3a3;
+    background: white;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.task__btn-edit:hover, .task__btn-delete:hover {
+    color: #e77a0e;
+}
+
+.task__btn-recover:hover {
+    color: #423FF9;
+}
+
+.task__btn-edit:hover::after, .task__btn-delete:hover::after, .task__btn-recover:hover::after{
+    content: attr(data-title);
+    position: absolute;
+    min-width: 6rem;
+    border-radius: 20px;
+    color: #ffffff;
+    top: 90%;
+    z-index: 1;
+    background: #a4a3a3;
+    opacity: 80%;
+    font-size: 0.8rem;
+    padding: 0.3rem;
+}
+
+.btn-description {
+    border: 0;
+    background: inherit;
+    padding: 0;
+    margin-bottom: 5px;
+    color: #a4a3a3;
+
+}
+
+.btn-description:hover {
+    color: #423FF9;
+}
+
+.task__title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
