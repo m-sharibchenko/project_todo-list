@@ -2,9 +2,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #ffffff;
-    background: #ffffff;
-    border: 3px solid #a4a3a3;
+    color: var(--color-button);
+    background: var(--color-button);
+    border: 3px solid var(--color-non-active-button);
     border-radius: 50%;
     width: 1.55rem;
     height: 1.5rem;
@@ -13,44 +13,44 @@
 }
 
 .btn-done:hover, .btn-done:active, .btn-done:focus {
-    color: #423FF9;
-    border: 3px solid #423FF9;
+    color: var(--color-secondary);
+    border: 3px solid var(--color-secondary);
 }
 
 .btn-done-checked {
-    color: #423FF9;
-    border: 3px solid #423FF9;
-    /*cursor: auto;*/
+    color: var(--color-secondary);
+    border: 3px solid var(--color-secondary);
+    cursor: auto;
 }
 
-.task__btn-edit, .task__btn-delete, .task__btn-recover {
+.task__btn-edit, .task__btn-delete, .btn-recover {
     position: relative;
-    color: #a4a3a3;
-    background: white;
+    color: var(--color-non-active-button);
+    background: var(--color-button);
     border: none;
     padding: 0.5rem;
     font-size: 1.2rem;
 }
 
 .task__btn-edit:hover, .task__btn-delete:hover {
-    color: #e77a0e;
+    color: var(--color-main);
 }
 
-.task__btn-recover:hover {
-    color: #423FF9;
+.btn-recover:hover {
+    color: var(--color-secondary);
 }
 
-.task__btn-edit:hover::after, .task__btn-delete:hover::after, .task__btn-recover:hover::after{
+.task__btn-edit:hover::after, .task__btn-delete:hover::after, .btn-recover:hover::after{
     content: attr(data-title);
     position: absolute;
     min-width: 6rem;
     border-radius: 20px;
-    color: #ffffff;
+    color: var(--color-button);
     top: 90%;
     z-index: 1;
-    background: #a4a3a3;
+    background: var(--color-non-active-button);
     opacity: 80%;
-    font-size: 0.8rem;
+    font-size: 12px;
     padding: 0.3rem;
 }
 
@@ -59,12 +59,12 @@
     background: inherit;
     padding: 0;
     margin-bottom: 5px;
-    color: #a4a3a3;
+    color: var(--color-non-active-button);
 
 }
 
 .btn-description:hover {
-    color: #423FF9;
+    color: var(--color-secondary);
 }
 
 .task__title {

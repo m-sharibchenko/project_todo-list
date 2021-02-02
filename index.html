@@ -92,9 +92,12 @@
 
 <template id="template__table-content">
     <tr class="table-body__task">
-        <td class="task__btn-done">
+        <td class="task__change-state-btn">
             <button class="btn-done">
                 <i class="fas fa-check"></i>
+            </button>
+            <button class="btn-recover hide" data-title="Восстановить">
+                <i class="fas fa-undo"></i>
             </button>
         </td>
 
@@ -109,23 +112,17 @@
         </td>
 
         <td class="task__management">
-            <button class="task__btn-edit" data-title="Редактировать"><i class="fas fa-edit"></i></button>
-            <button class="task__btn-delete" data-title="Удалить"><i class="fas fa-trash"></i></button>
-            <button class="task__btn-recover hide" data-title="Восстановить"><i class="fas fa-undo"></i></button>
+            <button class="task__btn-edit" data-title="Редактировать">
+                <i class="fas fa-edit"></i>
+            </button>
+            <button class="task__btn-delete" data-title="Удалить">
+                <i class="fas fa-trash"></i>
+            </button>
         </td>
     </tr>
 </template>
 
-<script src="./js/tab-content.js"></script>
-<script src="./js/form.js"></script>
-<!--<script type="module" src="js/index.js"></script>-->
-<script src="./js/count-tasks.js"></script>
-<script src="./js/manage-tasks.js"></script>
-<script src="./js/task.js"></script>
-
-
-
-
+<script type="module" src="./js/index.js"></script>
 
 </body>
 </html>

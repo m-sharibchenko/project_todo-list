@@ -4,6 +4,14 @@
 @import "table-content.css";
 @import "form.css";
 
+:root {
+    --color-main: #e77a0e;
+    --color-secondary: #423FF9;;
+    --color-non-active: #858585;
+    --color-button: #FFFFFF;
+    --color-non-active-button: #a4a3a3;
+}
+
 * {
     font-family: 'Roboto Condensed', sans-serif;
 }

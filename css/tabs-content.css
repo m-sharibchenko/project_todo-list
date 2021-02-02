@@ -14,29 +14,16 @@
     background: #000000;
     border: none;
     border-radius: 50px;
-    color: #ffffff;
-    box-shadow: 1px 2px 10px #858585;
+    color: var(--color-button);
+    box-shadow: 1px 2px 10px var(--color-non-active);
 }
 
 .tasks-create-btn:hover, .tasks-create-btn:active, .tasks-create-btn:focus {
-    background: #e77a0e;
+    background: var(--color-main);
 }
 
 .table {
-    /*table-layout: fixed;*/
     border-spacing: 0 1rem;
-}
-
-.th-task {
-    padding: 0 5rem;
-}
-
-.th-priority {
-    padding: 0 1rem;
-}
-
-.th-manage{
-    padding: 0 1rem;
 }
 
 .table-body__task {
@@ -49,7 +36,7 @@ td {
     padding: 1rem 0.5rem;
 }
 
-.task__btn-done {
+.task__change-state-btn {
     min-width: 1rem;
     padding: 0 1rem 0 1.5rem;
 }
