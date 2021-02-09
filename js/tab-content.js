@@ -6,10 +6,6 @@ let targetContent = document.getElementById('current-tasks');
 const tabsList = [currentTasks, completedTasks, deletedTasks];
 let activeTab = currentTasks;
 
-const currentTasksTable = document.querySelector('.table-current-tasks .table-body');
-const completedTasksTable = document.querySelector('.table-completed-tasks .table-body');
-const deletedTasksTable = document.querySelector('.table-deleted-tasks .table-body');
-
 function openTab(evt) {
     const btn = evt.target.closest('a');
 
@@ -29,6 +25,52 @@ function openTab(evt) {
 
 tabs.addEventListener('click', openTab);
 
-// localStorage.clear();
 
-export {currentTasksTable, completedTasksTable, deletedTasksTable};
+
+
+
+
+
+
+
+
+
+
+// async function sendData() {
+//     try {
+//         let user = {
+//             name: 'John',
+//             surname: 'Smith'
+//         };
+//
+//         let response = await fetch('https://67b41c3d-b3d2-4cb2-8ea5-4e61d4b13b6a.mock.pstmn.io/', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json;charset=utf-8'
+//             },
+//             body: JSON.stringify(user)
+//         });
+//         console.log('------------------')
+//         console.log(response.status);
+//     }
+//     catch (error) {
+//         console.log('error');
+//     }
+// }
+//
+// sendData();
+//
+// async function getData() {
+//     try {
+//         let response = await fetch('https://67b41c3d-b3d2-4cb2-8ea5-4e61d4b13b6a.mock.pstmn.io/');
+//         const users = await response.json();
+//         console.log(users);
+//     }
+//     catch (error) {
+//         console.log(error);
+//     }
+// }
+//
+// getData();
+
+// localStorage.clear();

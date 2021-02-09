@@ -1,39 +1,24 @@
 import {tasksArray} from "./local-storage.js";
 
-function getElements(evt, tr) {
-    const titleElement = tr.querySelector('.task__title');
-    const descriptionElement = tr.querySelector('.task__description');
-    const radioElement = tr.querySelector('.task__priority');
-
-    return [titleElement, descriptionElement, radioElement];
+function findTaskByID(tr) {
+    const id = tr.getAttribute('data-id');
+    return tasksArray.find(item => item.id.toString() === id);
 }
 
-function getData(evt, tr) {
-    const [titleElement, descriptionElement, radioElement] = getElements(evt, tr);
-    const titleValue = titleElement.textContent;
-    const descriptionValue = descriptionElement.textContent;
-    const radioValue = radioElement.textContent;
+function getValueOfTask(tr) {
+    const task = findTaskByID(tr);
+    const titleValue = task.title;
+    const descriptionValue = task.description;
+    const radioValue = task.priority;
 
     return [titleValue, descriptionValue, radioValue];
+
 }
 
-function changeStatus(evt, tr, status) {
-    const [titleValue, descriptionValue, radioValue] = getData(evt, tr);
-    const element = tasksArray.find(el =>
-        el.title === titleValue
-        && el.description === descriptionValue
-        && el.priority === radioValue);
-    element.status = status;
+function changeStatus(tr, status) {
+    const task = findTaskByID(tr);
+    task.status = status;
 }
 
-function deleteFromArray(evt, tr) {
-    const [titleValue, descriptionValue, radioValue] = getData(evt, tr);
-    const element = tasksArray.indexOf(el =>
-        el.title === titleValue
-        && el.description === descriptionValue
-        && el.priority === radioValue
-        && el.status === 'deleted');
-    tasksArray.splice(element, 1);
-}
 
-export {getElements, getData, changeStatus, deleteFromArray};
+export {findTaskByID, getValueOfTask, changeStatus};

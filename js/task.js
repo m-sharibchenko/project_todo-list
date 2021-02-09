@@ -1,12 +1,22 @@
-import {completeTask, deleteTask, recoverTask} from "./manage-tasks.js";
-import {addDataInForm} from "./edit-task.js";
+import {
+    completedTasksTable,
+    completeTask,
+    currentTasksTable,
+    deletedTasksTable,
+    deleteTask,
+    recoverTask
+} from "./manage-tasks.js";
+import {addDataInForm} from "./manage-tasks.js";
 import {countTasks} from "./count-tasks.js";
+import {stateBtnInCompletedTable, stateBtnInCurrentTable, stateBtnInDeletedTable} from "./btn-state.js";
 
 const templateContent = document.getElementById('template__table-content').content;
 const taskContent = templateContent.querySelector('.table-body__task');
 
-function createTask({title, description, priority}) {
+function createTask({id, title, description, priority}) {
     const newTask = taskContent.cloneNode(true);
+    newTask.setAttribute('data-id', id);
+    console.log(newTask);
 
     const btnDone = newTask.querySelector('.btn-done');
     btnDone.addEventListener('click', completeTask);
@@ -40,7 +50,6 @@ function createTask({title, description, priority}) {
     const taskPriority = newTask.querySelector('.task__priority');
     taskPriority.textContent = priority;
 
-    // const manageColumn = newTask.querySelector('.task__management');
     const btnEditTask = newTask.querySelector('.task__btn-edit');
     const btnDeleteTask = newTask.querySelector('.task__btn-delete');
 
@@ -50,10 +59,22 @@ function createTask({title, description, priority}) {
     return newTask;
 }
 
-function addTask(task, table) {
-    const newTask = createTask(task);
+function addTask(task) {
+    switch (task.status) {
+        case 'current':
+            currentTasksTable.append(createTask(task));
+            stateBtnInCurrentTable();
+            break;
+        case 'completed':
+            completedTasksTable.append(createTask(task));
+            stateBtnInCompletedTable();
+            break;
+        case 'deleted':
+            deletedTasksTable.append(createTask(task));
+            stateBtnInDeletedTable();
+            break;
+    }
 
-    table.append(newTask);
     countTasks();
 }
 

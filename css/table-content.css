@@ -17,10 +17,10 @@
     border: 3px solid var(--color-secondary);
 }
 
-.btn-done-checked {
+.btn-done.checked {
     color: var(--color-secondary);
     border: 3px solid var(--color-secondary);
-    cursor: auto;
+    cursor: default;
 }
 
 .task__btn-edit, .task__btn-delete, .btn-recover {
