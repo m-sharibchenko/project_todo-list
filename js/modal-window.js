@@ -16,4 +16,10 @@ btnCloseModal.addEventListener('click', () => {
     modal.close();
 });
 
+document.body.addEventListener('click', (evt) => {
+    if (evt.target === modal) {
+        modal.close();
+    }
+})
+
 export {modal, form, btnCreateTask, btnAddTaskChanges};

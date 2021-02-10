@@ -16,7 +16,6 @@ const taskContent = templateContent.querySelector('.table-body__task');
 function createTask({id, title, description, priority}) {
     const newTask = taskContent.cloneNode(true);
     newTask.setAttribute('data-id', id);
-    console.log(newTask);
 
     const btnDone = newTask.querySelector('.btn-done');
     btnDone.addEventListener('click', completeTask);
