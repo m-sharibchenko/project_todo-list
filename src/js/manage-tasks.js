@@ -1,7 +1,6 @@
-import {findTaskByID, changeStatus, getValueOfTask} from "./subsidary-function.js";
+import {findTaskByID, changeTaskStatus, getValueOfTask} from "./subsidary-function.js";
 import {countTasks} from "./count-tasks.js";
 import {tasksArray} from "./local-storage.js";
-import {stateBtnInDeletedTable, stateBtnInCurrentTable, stateBtnInCompletedTable} from "./btn-state.js";
 import {btnAddTaskChanges, btnCreateTask, modal} from "./modal-window.js";
 import {description, radio, title} from "./form.js";
 
@@ -12,9 +11,11 @@ const deletedTasksTable = document.querySelector('.table-deleted-tasks .table-bo
 function completeTask(evt) {
     const tr = evt.target.closest('tr');
 
-    changeStatus(tr, 'completed');
+    changeTaskStatus(tr, 'completed');
     completedTasksTable.prepend(tr);
-    stateBtnInCompletedTable();
+    tr.querySelector('.btn-done').classList.add('checked');
+    tr.querySelector('.btn-done').classList.remove('hide');
+    tr.querySelector('.btn-recover').classList.add('hide');
     countTasks();
 }
 
@@ -29,9 +30,10 @@ function deleteTask(evt) {
         countTasks();
     }
     else{
-        changeStatus(tr, 'deleted');
+        changeTaskStatus(tr, 'deleted');
         deletedTasksTable.prepend(tr);
-        stateBtnInDeletedTable();
+        tr.querySelector('.btn-done').classList.add('hide');
+        tr.querySelector('.btn-recover').classList.remove('hide');
         countTasks();
     }
 }
@@ -39,9 +41,10 @@ function deleteTask(evt) {
 function recoverTask(evt) {
     const tr = evt.target.closest('tr');
 
-    changeStatus(tr, 'current');
+    changeTaskStatus(tr, 'current');
     currentTasksTable.prepend(tr);
-    stateBtnInCurrentTable();
+    tr.querySelector('.btn-recover').classList.add('hide');
+    tr.querySelector('.btn-done').classList.remove('checked', 'hide');
     countTasks();
 }
 
@@ -67,18 +70,10 @@ function addDataInForm(evt) {
 
 function updateTask({title, description, priority}) {
     const task = findTaskByID(selectedRow);
-    const btnShowDescription = selectedRow.querySelector('.btn-description');
 
     task.title = title;
     task.description = description;
     task.priority = priority;
-
-    if (task.description !== "") {
-        btnShowDescription.classList.remove('hide');
-    }
-    else {
-        btnShowDescription.classList.add('hide');
-    }
 
     const titleElement = selectedRow.querySelector('.task__title');
     const descriptionElement = selectedRow.querySelector('.task__description');
@@ -87,6 +82,15 @@ function updateTask({title, description, priority}) {
     titleElement.textContent = title;
     descriptionElement.textContent = description;
     radioElement.textContent = priority;
+
+    const btnShowDescription = selectedRow.querySelector('.btn-description');
+
+    if (task.description !== "") {
+        btnShowDescription.classList.remove('hide');
+    }
+    else {
+        btnShowDescription.classList.add('hide');
+    }
 }
 
 export {

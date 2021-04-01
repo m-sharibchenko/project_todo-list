@@ -12,13 +12,12 @@ function getValueOfTask(tr) {
     const radioValue = task.priority;
 
     return [titleValue, descriptionValue, radioValue];
-
 }
 
-function changeStatus(tr, status) {
+function changeTaskStatus(tr, status) {
     const task = findTaskByID(tr);
     task.status = status;
 }
 
 
-export {findTaskByID, getValueOfTask, changeStatus};
+export {findTaskByID, getValueOfTask, changeTaskStatus};
